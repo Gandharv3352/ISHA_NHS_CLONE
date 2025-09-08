@@ -1,0 +1,107 @@
+.footer {
+      background-color: #14213d;
+      color: white;
+      padding: 40px 20px;
+      padding-left: 50px;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 90px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .footer-column h3 {
+      color: #009da2;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .social-icons a i {
+      font-size: 32px;
+    }
+
+    .social-icons a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #009da2;
+    }
+
+    #social {
+      margin-right: 45px;
+    }
+
+    .contact-heading {
+      font-size: 24px;
+      color: white;
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+
+    .query a {
+      font-size: 15px;
+      display: flex;
+      font-weight: 550;
+      padding: 10px 30px;
+      margin-top: 60px;
+      background-color: #14213d;
+      color: white;
+      border: 4px solid #009da2;
+      border-radius: 6px;
+      transition: background-color 0.3s, 
+      color 0.3s;
+      text-decoration: none;
+    }
+
+    .query a:hover {
+      background-color: #009da2;
+      color: #14213d;
+      text-decoration: none !important;
+    }
+
+    .footer-column p, .footer-column a {
+      color: white;
+      font-size: 14px;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+
+    .map-image {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 17px;
+      color: #ccc;
+      border-top: 1px solid #555;
+      padding-top: 15px;
+    }

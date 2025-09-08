@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Doctors | ISHA Health System</title>
+  <link rel="icon" href="PICTURES/final.png" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --primary-color: #009da2;
+      --header-bg: #14213d;
+      --light-beige: #fdf0d5;
+      --text-color: #333;
+      --card-bg: #fff;
+      --border-radius: 14px;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--light-beige);
+      color: var(--text-color);
+    }
+
+    header {
+      background-color: var(--header-bg);
+      color: white;
+      padding: 10px;
+      display: flex;
+      margin-bottom: 40px;
+      align-items: center;
+      height: 60px;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .back-btn {
+      background: none;
+      color: white;
+      border: none;
+      font-size: 17px;
+      cursor: pointer;
+      padding: 5px 10px;
+      position: absolute;
+      left: 20px;
+      border-radius: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 1px solid #14213d;
+    }
+
+    .back-btn:hover {
+      border: 1px solid white;
+    }
+
+    header h1 {
+      font-size: 24px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .doctor-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .doctor-card {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .doctor-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .doctor-card img {
+      width: 150px;
+      height: 150px;
+      border-radius: 9px;
+      object-fit: cover;
+      border: 2px solid black;
+      margin-bottom: 12px;
+    }
+
+    .doctor-card h2 {
+      font-size: 20px;
+      color: var(--header-bg);
+      margin: 10px 0 6px;
+    }
+
+    .doctor-card p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .btn-group {
+      margin-top: 12px;
+    }
+
+    .btn {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin: 5px 4px;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background-color: #007a7f;
+    }
+
+    /* Footer styles omitted for brevity */
+  </style>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body>
+  <header>
+    <button class="back-btn" onclick="window.history.back()">Back</button>
+    <h1>Doctors</h1>
+  </header>
+
+  <section class="doctor-list" id="doctorList"></section>
+
+  <footer class="footer">
+    <!-- footer content unchanged, omitted for brevity -->
+  </footer>
+
+
+<script>
+const doctors = [
+  {
+    name: "Dr. Harv",
+    specialization: "General Practitioner",
+    experience: "10 years",
+    post: "General Practitioner - ISHA ER",
+    image: "PICTURES/old1.jpg",
+  },
+  {
+    name: "Dr. Muhammadrizzo",
+    specialization: "Cardiologist",
+    experience: "14 years",
+    post: "Consultant, ISHA Orthopedics",
+    image: "PICTURES/d4.jpg",
+  },
+  {
+    name: "Dr. Ifeoma",
+    specialization: "Pediatrician",
+    experience: "11 years",
+    post: "Senior GP - ISHA Health",
+    image: "PICTURES/d2.jpg",
+  },
+  {
+    name: "Dr. Lukis",
+    specialization: "Neurologist",
+    experience: "15 years",
+    post: "Chief of Surgery - ISHA",
+    image: "PICTURES/d1.jpg",
+  },
+  {
+    name: "Dr. Jenny",
+    specialization: "Dermatologist",
+    experience: "12 years",
+    post: "Skin Specialist - ISHA",
+    image: "PICTURES/d5.jpg",
+  },
+  {
+    name: "Dr. Daniel Evans",
+    specialization: "Psychiatrist",
+    experience: "7 years",
+    post: "Specialist - ISHA Clinic",
+    image: "PICTURES/d7.jpg",
+  },
+];
+
+const container = document.getElementById("doctorList");
+
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const val = urlParams.get(param);
+  return val ? val.trim() : null;
+}
+
+function renderDoctors(list) {
+  container.innerHTML = ""; // Clear previous results
+
+  if (list.length === 0) {
+    container.innerHTML = `
+      <p style="grid-column: 1 / -1; text-align: center; font-size: 18px; color: #555;">
+        No doctors found for this specialization.
+      </p>
+    `;
+    return;
+  }
+
+  list.forEach((doc) => {
+    const card = document.createElement("div");
+    card.className = "doctor-card";
+    card.innerHTML = `
+      <img src="${doc.image}" alt="${doc.name}" />
+      <h2>${doc.name}</h2>
+      <p><strong>Specialization:</strong> ${doc.specialization}</p>
+      <p><strong>Experience:</strong> ${doc.experience}</p>
+      <p><strong>Post:</strong> ${doc.post}</p>
+      <div class="btn-group">
+        <a href="Booking.html" class="btn">Book Online</a>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+const selectedSpecialization = getQueryParam("specialization");
+console.log("Query parameter specialization:", selectedSpecialization);
+
+if (selectedSpecialization) {
+  if (selectedSpecialization.toLowerCase() === "all") {
+    // Show all doctors
+    renderDoctors(doctors);
+  } else {
+    // Filter ignoring case
+    const filteredDoctors = doctors.filter(
+      (doc) => doc.specialization.toLowerCase() === selectedSpecialization.toLowerCase()
+    );
+    console.log("Filtered doctors:", filteredDoctors);
+    renderDoctors(filteredDoctors);
+  }
+} else {
+  renderDoctors(doctors);
+}
+</script>
+</body>
+</html>

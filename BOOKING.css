@@ -1,0 +1,521 @@
+ body { 
+
+            font-family: Arial, sans-serif; 
+
+            background-color: #fdf0d5;
+
+            display: flex; 
+
+            justify-content: center; 
+
+            align-items: center;
+            flex-direction: column;
+
+            min-height: 100vh; 
+
+            box-sizing: border-box; 
+            margin: 0px;
+            padding: 0px;
+            overflow-x: hidden;
+
+        } 
+.header {
+  box-sizing: content-box;
+  position: relative;
+  background-color: #14213d;
+  height: 60px;
+  padding: 10px 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 24px;
+  color: white;
+}
+
+.back a {
+  position: absolute;
+  left: 20px;
+  bottom: 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid #132a13;
+  cursor: pointer;
+  margin-left: 30px;
+  margin-bottom: 7px;
+}
+
+.back a:hover {
+  border: 1px solid white;
+}
+
+
+
+        .container { 
+
+            background-color: #ffffff; 
+
+            padding: 30px; 
+
+            border-radius: 12px; 
+
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+
+            width: 100%; 
+
+            max-width: 960px; 
+
+            display: flex; 
+
+            flex-direction: column;
+            margin-bottom: 150px;
+
+        } 
+
+ 
+
+        /* Responsive layout for larger screens */ 
+
+        @media (min-width: 1024px) { 
+
+            .container { 
+
+                flex-direction: row; 
+
+            } 
+
+        } 
+
+ 
+
+        /* Section Styling (Booking and Check-in) */ 
+
+        .section { 
+
+            flex: 1; 
+
+            padding: 24px; 
+ 
+
+            border-radius: 8px; 
+
+        } 
+
+ 
+
+        /* Headings */ 
+
+        h2 { 
+
+            font-size: 31px; 
+
+            font-weight: bold; 
+
+            color: #009da2; /* Header color to white */ 
+
+            background-color: #ffffff; /* Header background color */ 
+
+            padding: 10px 0; 
+
+            margin: -24px -24px 24px -24px; 
+
+            border-top-left-radius: 8px; 
+
+            border-top-right-radius: 8px; 
+
+            text-align: center; 
+
+        } 
+
+ 
+
+        h3 { 
+
+            font-size: 20px; 
+
+            font-weight: 600; 
+
+            color: #009da2; /* Subheading color */ 
+
+            margin-bottom: 16px; 
+
+        } 
+
+ 
+
+        /* Form Styling */ 
+
+        .form-group { 
+
+            margin-bottom: 16px; 
+
+        } 
+
+ 
+
+        label { 
+
+            display: block; 
+
+            color: #363739; 
+
+            font-size: 17px; 
+
+            font-weight: 550; 
+
+            margin-bottom: 4px; 
+
+        } 
+
+ 
+
+        input[type="text"], 
+
+        input[type="time"], 
+        input[type="date"], 
+        input[type="tel"], 
+
+        textarea, 
+
+        select { /* Added select to styling */ 
+
+            width: 100%; 
+
+            padding: 10px 16px; 
+            border: 1px solid rgb(173, 173, 173);
+
+            border-radius: 8px; 
+
+            box-sizing: border-box; 
+
+        } 
+
+ 
+
+        input[type="text"]:focus, 
+
+        input[type="time"]:focus, 
+
+        textarea:focus, 
+
+        select:focus { /* Added select to focus styling */ 
+
+            outline: none; 
+
+            border-color: #000000; 
+
+            box-shadow: 0 0 0 2px rgba(132, 132, 132, 0.1); 
+
+        } 
+
+ 
+
+        textarea { 
+
+            resize: vertical; 
+
+        } 
+
+ 
+
+        /* Radio Buttons */ 
+
+        .radio-group { 
+
+            display: flex; 
+
+            align-items: center; 
+
+            gap: 16px; 
+
+            margin-bottom: 16px; 
+
+        } 
+
+ 
+
+        .radio-group label { 
+
+            display: inline-flex; 
+
+            align-items: center; 
+
+            margin-bottom: 0; 
+
+        } 
+
+ 
+
+        input[type="radio"] { 
+
+            height: 16px; 
+
+            width: 16px; 
+
+            accent-color: #009da2; 
+
+            margin-right: 8px; 
+
+        } 
+
+ 
+
+        /* Buttons */ 
+
+        button { 
+
+            width: 100%; 
+
+            padding: 12px 16px; 
+
+            border-radius: 8px; 
+
+            font-weight: 600; 
+
+            cursor: pointer; 
+
+            transition: background-color 0.2s, box-shadow 0.2s; 
+
+            border: none; 
+
+            margin-top: 8px; 
+            font-size: 18px;
+
+        } 
+
+ 
+
+        button[type="submit"] { 
+
+            background-color: #14213d; 
+
+            color: #ffffff; 
+
+        } 
+
+ 
+
+        button[type="submit"]:hover { 
+
+            background-color: #009da2; 
+            color: black;
+        } 
+
+ 
+
+        #checkInButton { 
+
+            background-color: #16a34a; 
+
+            color: #ffffff; 
+
+        } 
+
+ 
+
+        #checkInButton:hover { 
+
+            background-color: #15803d; 
+
+        } 
+
+ 
+
+        /* Check-in Form Specifics */ 
+
+        .check-in-form-container { 
+
+            margin-bottom: 32px; 
+
+            padding: 16px; 
+
+            border: 1px solid #e2e8f0; 
+
+            border-radius: 8px; 
+
+            background-color: #ffffff; 
+
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
+
+        } 
+
+ 
+
+        .check-in-input-group { 
+
+            display: flex; 
+
+            flex-direction: column; 
+
+            gap: 16px; 
+
+        } 
+
+ 
+
+        @media (min-width: 640px) { 
+
+            .check-in-input-group { 
+
+                flex-direction: row; 
+
+            } 
+
+            .check-in-input-group input { 
+
+                flex: 1; 
+
+            } 
+
+            .check-in-input-group button { 
+
+                width: auto; 
+
+                padding-left: 24px; 
+
+                padding-right: 24px; 
+
+            } 
+
+        } 
+
+ 
+
+        /* Appointments Display */ 
+
+        .appointments-list-container { 
+
+            margin-top: 24px; 
+
+        } 
+
+ 
+
+        .appointments-list { 
+
+            max-height: 240px; 
+
+            overflow-y: auto; 
+
+            padding-right: 8px; 
+
+            margin-top: 12px; 
+
+        } 
+
+ 
+
+        .appointment-item { 
+
+            padding: 16px; 
+
+            border-radius: 8px; 
+
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
+
+            border: 1px solid; 
+
+            margin-bottom: 12px; 
+
+        } 
+
+ 
+
+        .appointment-item p { 
+
+            margin-bottom: 4px; 
+
+        } 
+
+ 
+
+        .appointment-item p:last-child { 
+
+            margin-bottom: 0; 
+
+        } 
+
+ 
+
+        /* Booked Appointment Item */ 
+
+        .booked-item { 
+
+            background-color: #e0f2fe; 
+
+            border-color: #bfdbfe; 
+
+        } 
+
+        .booked-item .font-semibold { color: #1e40af; } 
+
+        .booked-item .text-sm { color: #1d4ed8; } 
+
+ 
+
+        /* Checked-in Appointment Item */ 
+
+        .checked-in-item { 
+
+            background-color: #dcfce7; 
+
+            border-color: #bbf7d0; 
+
+        } 
+
+        .checked-in-item .font-semibold { color: #14532d; } 
+
+        .checked-in-item .text-sm { color: #16a34a; } 
+
+ 
+
+        /* No Appointments Message */ 
+
+        .no-appointments-message { 
+
+            color: #64748b; 
+
+            text-align: center; 
+
+            margin-top: 16px; 
+
+        } 
+
+ 
+
+        /* Message Box (Static for basic HTML/CSS) */ 
+
+        .message-box { 
+
+            position: fixed; 
+
+            top: 16px; 
+
+            right: 16px; 
+
+            background-color: #3b82f6; 
+
+            color: #ffffff; 
+
+            padding: 12px 24px; 
+
+            border-radius: 8px; 
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+
+            z-index: 50; 
+
+            display: none; /* Hidden by default */ 
+
+        } 

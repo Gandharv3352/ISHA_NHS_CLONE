@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Appointments Viewer</title>
+  <link rel="icon" href="PICTURES/final.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --primary-color: #14213d;
+      --accent-color: #009da2;
+      --bg-color: #fdf0d5;
+      --text-color: #333;
+      --card-bg: #ffffff;
+      --badge-bg: #e8f0fe;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+    }
+
+    .header {
+      display: flex;
+      position: relative;
+      height: 60px;
+      background-color: var(--primary-color);
+      padding: 10px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+      width: 100%;
+    }
+
+    .back a {
+      position: absolute;
+      left: 20px;
+      bottom: 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 17px;
+      padding: 5px 10px;
+      border-radius: 4px;
+      border: 1px solid #132a13;
+      cursor: pointer;
+    }
+
+    .back a:hover { border: 1px solid white; }
+
+    h1 { margin: 20px; color: #ffffff; font-size: 24px; }
+    h2 { color: var(--primary-color); text-align: center; margin-bottom: 30px; font-size: 26px; }
+
+    .apptable{ display:flex; justify-content:center; align-items:center; margin-bottom:200px; }
+
+    table {
+      margin: 10px;
+      border-collapse: collapse;
+      background-color: var(--card-bg);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 150px;
+      width: calc(100% - 20px);
+      max-width: 1200px;
+    }
+
+    th, td {
+      padding: 13px 7px;
+      text-align: left;
+      font-size: 14px;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: 600;
+    }
+    tr:hover { background-color: #f8f8f8; }
+
+    #action{ width: 180px; }
+
+    .date-input, .time-input, .reason-input {
+      padding: 6px 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      width: 120px;
+      background-color: #f9f9f9;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .reason-input { width: 160px; }
+    .date-input:focus, .time-input:focus, .reason-input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 3px rgba(0,0,0,.15);
+      outline: none;
+    }
+
+    button {
+      padding: 6px 12px;
+      margin: 2px;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background-color .2s, opacity .1s;
+    }
+    button:hover { opacity: .85; }
+    .btn-save   { background-color: var(--accent-color); color: white; }
+    .btn-cancel { background-color: #e35632; color: white; }
+    .btn-checkin{ background-color: #0b8f3c; color: #fff; }
+
+    .checkin-hint { font-size: 12px; opacity: .8; margin-top: 4px; min-height: 16px; }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr { display: block; }
+      thead { display: none; }
+      tr {
+        margin-bottom: 15px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        background-color: white;
+        padding: 10px;
+      }
+      td {
+        padding: 10px;
+        text-align: right;
+        position: relative;
+        border: none;
+        border-bottom: 1px solid #eee;
+      }
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        font-weight: 600;
+        text-transform: capitalize;
+        color: var(--primary-color);
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="back"><a onclick="window.history.back()">Back</a></div>
+    <h1>Appointments</h1>
+  </div>
+
+  <table id="appointmentsTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Phone</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Doctor</th>
+        <th>Status</th>
+        <th>Booked</th>
+        <th>Type</th>
+        <th>Reason</th>
+        <th>Check-in</th>
+        <th id="action">Action</th>
+      </tr>
+    </thead>
+    <tbody id="bodyy"></tbody>
+  </table>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column" id="social">
+        <h3>Connect with Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fa-solid fa-phone"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+        <div>
+          <h3>Our Address</h3>
+          <p>Main Hospital</p>
+          <p>123 Healing Street,<br>London, UK</p>
+          <img src="PICTURES/map.png" alt="Map" class="map-image" />
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Branches</h3>
+        <p>City Care Centre, 45 East Ave, Birmingham</p>
+        <p>Health First Clinic, 22 Wellness Rd, Manchester</p>
+        <p>Sunshine Hospital, 88 North Blvd, Liverpool</p>
+        <div class="query"><a href="contact.html">SUBMIT A QUERY >></a></div>
+      </div>
+
+      <div class="footer-column" id="treatments">
+        <h3>Treatments Available</h3>
+        <a href="#">Cardiology</a>
+        <a href="#">Orthopaedics</a>
+        <a href="#">Neurology</a>
+        <a href="#">Dermatology</a>
+        <a href="#">Pediatrics</a>
+        <a href="#">Gynecology</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Useful Links</h3>
+        <a href="About.html">About Us / FAQs</a>
+        <a href="policies.html">Our Policies</a>
+        <a href="#">Give Us Feedback</a>
+        <a href="#">Careers</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 ISHA. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="appointmentfinal.js"></script>
+</body>
+</html>
