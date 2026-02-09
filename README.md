@@ -1,8 +1,4 @@
-<p align="center">
-  <img src="https://img.shields.io/badge/NHS-CLONE-blue?style=for-the-badge" />
-</p>
-
-<h1 align="center">ISHA NHS Clone</h1>
+<h1 align="center">ISHA NHS WEBSITE</h1>
 
 <p align="center">
   A responsive clone of the NHS (National Health Service) website built using core web technologies.
@@ -11,9 +7,6 @@
 <p align="center">
   🌐 <a href="https://isha-nhs-clone.onrender.com" target="_blank">Live Website</a>
 </p>
-
-## 🌐 Live Demo
-[View Website](https://isha-nhs-clone.onrender.com)
 
 ---
 
