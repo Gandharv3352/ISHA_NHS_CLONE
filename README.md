@@ -86,7 +86,7 @@ Contributions, issues, and feature requests are always welcome 🚀
   <tr>
     <td align="center">
       <a href="https://github.com/Gandharv3352">
-        <img src="https://avatars.githubusercontent.com/u/1?v=4" width="100px;" alt="Contributor"/>
+        <img src="https://github.com/Gandharv3352.png" width="100px;" alt="Gandharv3352"/>
         <br />
         <sub><b>Gandharv3352</b></sub>
       </a>
