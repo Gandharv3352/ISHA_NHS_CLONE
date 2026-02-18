@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  🌐 <a href="https://isha-nhs-clone.onrender.com" target="_blank">Live Website</a>
+  🌐 <a href="https://isha-nhs-clone.vercel.app/" target="_blank">Live Website</a>
 </p>
 
 ---
